@@ -1,0 +1,141 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.containerList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  transition: all 1s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  scroll-behavior: smooth;
+  height: auto;
+  margin: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.list_cards {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  margin-right: auto;
+}
+
+.card {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  border-radius: 10px;
+  height: 295px;
+  width: 190px;
+  align-items: center;
+  margin: 5px;
+}
+
+.image {
+  border-radius: 10px;
+}
+
+.h6 {
+  width: 96%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-top: -25px;
+  z-index: 1;
+  color: 'white';
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    height: 260px;
+    width: 163px;
+  }
+
+  .movieRowLeft,
+  .movieRowRight {
+    opacity: 1;
+  }
+
+  .arrow {
+    opacity: 0;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .card {
+    transform: scale(0.95);
+    transition: 0.3s;
+  }
+
+  .card:hover,
+  .card:focus {
+    transform: scale(1.0);
+    transition: 0.3s;
+    border: solid 2px yellow;
+  }
+
+  .image:target,
+  .image:active {
+    border: solid 2px yellow;
+  }
+}
+
+.movieRowItem img {
+  width: 100%;
+  transform: scale(.9);
+  transition: all ease .2s;
+}
+
+.movieRowItem img:hover {
+  transform: scale(1);
+  transition: all ease .2s;
+}
+
+.movieRowLeft,
+.movieRowRight {
+  position: absolute;
+  width: 90px;
+  height: 480px;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  margin: 0px;
+  padding: 5px 5px;
+  overflow: hidden;
+  opacity: 0.7;
+  transition: 0.5s;
+  transform: scale(.9);
+}
+
+.movieRowLeft {
+  left: 5px;
+  justify-content: flex-start;
+  transition: 0.5s;
+}
+
+.arrow {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 100%;
+  color: white;
+  padding-left: 15px;
+  transition: 0.5s;
+}
+
+.movieRowRight {
+  right: 5px;
+  justify-content: center;
+}
+
+
+.movieRowLeft:hover,
+.movieRowRight:hover {
+  transform: scale(1.1);
+}
