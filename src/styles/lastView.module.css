@@ -1,0 +1,36 @@
+.container{
+    width:100%;
+    margin-bottom: 10px;
+}
+.background{
+    width:100%;
+    object-fit:fill;
+    background-size: cover;
+    background-position: 50% 15%;
+    margin-bottom: -10vh;
+    margin-top: -51px;
+}
+.Vertical{
+    width: inherit;
+    height: inherit;
+    background: linear-gradient(to top, var(--cor-02) 10%, transparent 90%);
+}
+
+
+@media screen and (max-width: 600px) {
+    .container{
+        min-height: 400px;       
+    }
+    .background, .Vertical{
+        min-height: 500px;       
+    }
+
+  }
+@media screen and (min-width: 600px) {
+    .container{
+        min-height: 400px;       
+    }
+    .background, .Vertical{
+        min-height: 500px;       
+    }
+  }
