@@ -9,7 +9,7 @@ export async function getStaticProps(context) {
       dataGenres,
       type,
     },
-    revalidate: 2,
+    revalidate: 3 * 60,
   };
 }
 const Movies = function Movies({ dataGenres, type }) {
