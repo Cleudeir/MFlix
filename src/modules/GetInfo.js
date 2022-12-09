@@ -1,9 +1,9 @@
 export default async function GetInfo({ type }) {
-  let url = process.env.URL_SERVER02;
+  let url = process.env.URL_SERVER01;
   try {
     await fetch(url);
   } catch (error) {
-    url = process.env.URL_SERVER01;
+    url = process.env.URL_SERVER02;
   }
   const baseUrl = 'https://redecanais.to';
 
