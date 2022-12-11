@@ -9,11 +9,10 @@ export async function getStaticProps(context) {
       dataGenres,
       type,
     },
-    revalidate: 3 * 60,
+    revalidate: 1 * 24 * 60 * 60,
   };
 }
 const Movies = function Movies({ dataGenres, type }) {
-  console.log(dataGenres);
   return (
     <Pages type={type} dataGenres={dataGenres} />
   );

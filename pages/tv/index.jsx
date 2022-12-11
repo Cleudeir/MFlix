@@ -13,7 +13,6 @@ export async function getStaticProps(context) {
   };
 }
 const Tv = function Tv({ dataGenres, type }) {
-  console.log(dataGenres);
   return (
     <Pages type={type} dataGenres={dataGenres} />
   );

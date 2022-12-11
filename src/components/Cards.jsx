@@ -7,14 +7,13 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import Url from '../modules/Url';
 import styles from '../styles/cards.module.css';
 
-// eslint-disable-next-line react/prop-types
+// eslint-disable-next-line react/prop-types, func-names
 const Card = function ({ data, type, setBackGround }) {
   const slide = (i, j) => {
     const item = document.getElementById(`slider${i}`);
     const numero = item.children[0].children;
     const larguraCard = numero[0].offsetWidth;
     const larguraTotal = numero.length * larguraCard;
-    console.log(larguraTotal, i, j);
     item.scrollLeft += +larguraCard * j * 3;
   };
 
@@ -71,7 +70,7 @@ const Card = function ({ data, type, setBackGround }) {
                       </a>
                     </Link>
                     <h6 className={styles.h6}>
-                      {}
+                      { }
                       {x.url
                         ? `❤️ ${x.title.slice(0, 15)} `
                         : `${x.title.slice(0, 15)}`}
