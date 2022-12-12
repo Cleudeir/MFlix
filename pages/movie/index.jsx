@@ -13,9 +13,8 @@ export async function getStaticProps(context) {
   };
 }
 const Movies = function Movies({ dataGenres, type }) {
-  return (
-    <Pages type={type} dataGenres={dataGenres} />
-  );
+  console.log(dataGenres);
+  return <Pages type={type} dataGenres={dataGenres} />;
 };
 
 export default Movies;
