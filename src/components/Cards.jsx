@@ -12,9 +12,14 @@ const Card = function ({ data, type, setBackGround }) {
   const slide = (i, j) => {
     const item = document.getElementById(`slider${i}`);
     const numero = item.children[0].children;
+    item.scrollLeft = localStorage.getItem(`slider${i}`);
     const larguraCard = numero[0].offsetWidth;
     const larguraTotal = numero.length * larguraCard;
-    item.scrollLeft += +larguraCard * j * 3;
+    console.log({
+      i, j, larguraCard, larguraTotal, x: item.scrollLeft,
+    });
+    item.scrollLeft += (+larguraCard) * j * 3;
+    localStorage.setItem(`slider${i}`, item.scrollLeft);
   };
 
   return (
