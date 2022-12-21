@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import { useEffect, useState } from 'react';
 import Url from '../modules/Url';
 import styles from '../styles/cards.module.css';
 
@@ -19,13 +20,26 @@ const Card = function ({ data, type, setBackGround }) {
       i, j, larguraCard, larguraTotal, x: item.scrollLeft,
     });
     item.scrollLeft += (+larguraCard) * j * 3;
-    localStorage.setItem(`slider${i}`, item.scrollLeft);
+    localStorage.setItem(`slider${i}${type}`, item.scrollLeft);
   };
 
-  return (
-    <div className={styles.container}>
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
 
-      {data[0].length > 0
+  async function moveSlide() {
+    await sleep(1 * 1000);
+    data.map((info, i) => {
+      const item = document.getElementById(`slider${i}`);
+      item.scrollLeft = localStorage.getItem(`slider${i}${type}`);
+    });
+  }
+
+  moveSlide();
+  return (
+    (
+      <div className={styles.container}>
+        {data[0].length > 0
         && data.map((info, i) => (
           <div key={i}>
             <div className={styles.movieRow}>
@@ -86,7 +100,8 @@ const Card = function ({ data, type, setBackGround }) {
             </div>
           </div>
         ))}
-    </div>
+      </div>
+    )
   );
 };
 
