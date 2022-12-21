@@ -15,26 +15,11 @@ const Card = function ({ data, type, setBackGround }) {
     const numero = item.children[0].children;
     const larguraCard = numero[0].offsetWidth;
     const larguraTotal = numero.length * larguraCard;
-    item.scrollLeft += (+larguraCard) * j * 3;
+    item.scrollLeft += +larguraCard * j * 3;
+    console.log('movislide', item.scrollLeft);
     localStorage.setItem(`slider${i}${type}`, item.scrollLeft);
   };
 
-  function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
-  let count = 0;
-  async function moveSlide() {
-    if (count === 0) {
-      await sleep(1 * 1000);
-      data.map((x, i) => {
-        const item = document.getElementById(`slider${i}`);
-        item.scrollLeft = localStorage.getItem(`slider${i}${type}`);
-      });
-      count += 1;
-    }
-  }
-
-  moveSlide();
   return (
     (
       <div className={styles.container}>
@@ -57,7 +42,7 @@ const Card = function ({ data, type, setBackGround }) {
             </div>
 
             <h1 style={{
-              color: 'white', marginLeft: 60, whiteSpace: 'nowrap',
+              color: 'white', marginLeft: 60, whiteSpace: 'nowrap', fontSize: 30,
             }}
             >
               {info[0].genres}
