@@ -13,12 +13,8 @@ const Card = function ({ data, type, setBackGround }) {
   const slide = (i, j) => {
     const item = document.getElementById(`slider${i}`);
     const numero = item.children[0].children;
-    item.scrollLeft = localStorage.getItem(`slider${i}`);
     const larguraCard = numero[0].offsetWidth;
     const larguraTotal = numero.length * larguraCard;
-    console.log({
-      i, j, larguraCard, larguraTotal, x: item.scrollLeft,
-    });
     item.scrollLeft += (+larguraCard) * j * 3;
     localStorage.setItem(`slider${i}${type}`, item.scrollLeft);
   };
@@ -26,13 +22,16 @@ const Card = function ({ data, type, setBackGround }) {
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
-
+  let count = 0;
   async function moveSlide() {
-    await sleep(1 * 1000);
-    data.map((info, i) => {
-      const item = document.getElementById(`slider${i}`);
-      item.scrollLeft = localStorage.getItem(`slider${i}${type}`);
-    });
+    if (count === 0) {
+      await sleep(1 * 1000);
+      data.map((x, i) => {
+        const item = document.getElementById(`slider${i}`);
+        item.scrollLeft = localStorage.getItem(`slider${i}${type}`);
+      });
+      count += 1;
+    }
   }
 
   moveSlide();
@@ -89,7 +88,6 @@ const Card = function ({ data, type, setBackGround }) {
                       </a>
                     </Link>
                     <h6 className={styles.h6}>
-                      { }
                       {x.url
                         ? `❤️ ${x.title.slice(0, 15)} `
                         : `${x.title.slice(0, 15)}`}
