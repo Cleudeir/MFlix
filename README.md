@@ -1,8 +1,8 @@
 
-                # [...id].jsx                
-                ## project structure
-                ```                    
-                mflix_next/
+# mflix_next              
+## project structure
+```                    
+mflix_next/
     package-lock.json
     README.md
     next.json.js
@@ -13,7 +13,7 @@
             Url.js
             GetInfo.js
         request/
-            zThemoviedb.http
+            Themoviedb.http
             _redecanais.http
         styles/
             Header.module.css
@@ -42,8 +42,8 @@
         favicon.png
         vercel.svg
         carregando.gif                
-                ```
-                ## Sumário do Projeto mflix
+```
+## Sumário do Projeto mflix
 
 **Objetivo:** Criar uma aplicação web para exibir filmes e séries de TV.  A aplicação utiliza dados de diversas fontes e permite a navegação entre diferentes títulos e episódios.
 
